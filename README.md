@@ -10,3 +10,7 @@ Created by lilKriT.
 - create `server/trpc.ts`
 - create `server/index.ts`
 - create `api/trpc/[trpc]/route.ts` (this is where the main difference between pages and app router is.)
+- create `_trpc/client.ts`
+- create `_trpc/provider.ts`
+- add the provider to your layout
+- use it in a client component
