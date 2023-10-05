@@ -14,3 +14,5 @@ Created by lilKriT.
 - create `_trpc/provider.ts`
 - add the provider to your layout
 - use it in a client component
+- add / replace procedures with ones that actually do something
+- you can use `zod` to validate input
