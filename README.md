@@ -16,3 +16,9 @@ Created by lilKriT.
 - use it in a client component
 - add / replace procedures with ones that actually do something
 - you can use `zod` to validate input
+- add SSR:
+  - create `_trpc/serverClient.ts`
+  - in your pages, import `serverClient`, turn the page into async
+  - fetch your data in a server page
+  - pass it to your components (careful, typing it can be tricky!)
+  - you might want to disable some refetching

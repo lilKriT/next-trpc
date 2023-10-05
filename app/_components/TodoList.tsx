@@ -2,9 +2,18 @@
 
 import { FormEvent, useState } from "react";
 import { trpc } from "../_trpc/client";
+import { serverClient } from "../_trpc/serverClient";
 
-const TodoList = () => {
-  const getTodos = trpc.getTodos.useQuery();
+const TodoList = ({
+  initialTodos,
+}: {
+  initialTodos: Awaited<ReturnType<(typeof serverClient)["getTodos"]>>;
+}) => {
+  const getTodos = trpc.getTodos.useQuery(undefined, {
+    initialData: initialTodos, // this is the initial data
+    refetchOnMount: false,
+    refetchOnReconnect: false, // those two lines will save us unnecessary fetching
+  });
   const addTodo = trpc.addTodo.useMutation({
     onSettled: () => {
       getTodos.refetch();
